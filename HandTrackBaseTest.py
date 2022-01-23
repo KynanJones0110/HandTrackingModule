@@ -12,7 +12,7 @@ idCheck = 0
 #The use of this is, we will create a list which will point to an ID but also the position, so you could check where the finger tip is etc.
 ######################
 mpHands = mp.solutions.hands
-hands = mpHands.hands(False,2,0.5,0.5)
+hands = mpHands.Hands()
 mpDraw = mp.solutions.drawing_utils
 
 
@@ -36,11 +36,12 @@ while True:
                 h, w, c= img.shape
                 cx, cy = int(lm.x*w), int(lm.y*h)
                 #printing positions per ID
-                #print(id, cx, cy)
+                print(id, cx, cy)
 
-                if id ==idCheck:
+                #if id == 0:
+
                     #Getting the position info
-                    cv2.cir(img, (cx,cy), 15, (255,0,255),cv2.FILLED)
+                    #cv2.circle(img, (cx, cy), 15, (255, 0, 255), cv2.FILLED)
 
             mpDraw.draw_landmarks(img, handLms, mpHands.HAND_CONNECTIONS)
 
